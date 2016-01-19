@@ -1,17 +1,16 @@
 Gulp ![Gulp Logo](./gulp_logo.png)
 
-# What is Gulp?
 ===========================
-
+# What is Gulp?
 Find the Gulp documentation [here](https://github.com/gulpjs/gulp/tree/master/docs)
 
-## What it is:
 ------------------------------
+## What it is:
 Gulp is a streaming build system that helps automate tedious tasks in your development workflow. It increases work efficiency
 
 ### What are Streams?
 > Streams come to us from the earliest days of unix and have proven themselves over the decades as a dependable way to compose large systems out of small components that do one thing well. You can then plug the output of one stream to the input of another and use libraries that operate abstractly on streams to institute higher-level flow control.
->- substack 
+>-- substack 
 
 **Gulp is built on Node.js.** The Gulp source and your Gulp file in your app (where tasks will be defined) are written in Javascript.
 
@@ -26,11 +25,10 @@ Gulp is a streaming build system that helps automate tedious tasks in your devel
 >```
 >$("#element").text("hello world!").addClass("myclass").fadeIn();
 >```
->- from sitepoint
+>-- from sitepoint
 
-
-## What it does:
 ------------------------------
+## What it does:
 **Remember 'DRY'?** Gulp helps to DRY things up by automating repetitive tasks. 
 
 ### Things *Gulp* can do:
@@ -45,9 +43,8 @@ Gulp is a streaming build system that helps automate tedious tasks in your devel
 * Refreshing your browser when you save a file.
 * Running unit tests quickly
 
-
-## Why we might want to use it:
 ------------------------------
+## Why we might want to use it:
 **Grunt** is also a Node.js-based task runner and does the same thing as **Gulp**. So why use **Gulp**? 
 
 - *Grunt* plug-ins often perform multiple tasks; *Gulp* plug-ins are designed to do one thing only.
@@ -56,11 +53,12 @@ Gulp is a streaming build system that helps automate tedious tasks in your devel
 
 
 
-# How do we use it?
 ==============================
+# How do we use it?
 
-## Getting Started
 ------------------------------
+## Getting Started
+
 ### Step 1: Install Node.js
 [Install it from the Command Line](https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager)
 
@@ -92,9 +90,9 @@ gulp.task('default', function() {
 
 Default task will run, will do nothing.
 
-
-## How To Use
 ------------------------------
+## How To Use
+
 ### Plugins
 **Gulp** has 
 You can see plugins [here](http://gulpjs.com/plugins/) or by typing `npm search gulpplugin` 
@@ -110,16 +108,19 @@ Then require it and save it to a variable in your gulpfile.
 * [gulp-remember](https://github.com/ahaurw01/gulp-remember) --pairs nicely with gulp-cached
 * [gulp-newer](https://github.com/tschaub/gulp-newer) --pass through newer source files only, supports many:1 source:dest
 
-### The Four Main Gulp APIs:
+------------------------------
+## The Four Main Gulp APIs:
 
 #### gulp.src(globs[, options])
 Emits files matching provided glob or an array of globs. Returns a stream of Vinyl files that can be piped to plugins.
 
 * **globs**
+
 Type: `String` or `Array`
 Glob or array of globs to read.
 A glob that begins with `!` excludes matching files from the glob results up to that point
 * **options**
+
 Type: `Object`
 Options to pass to node-glob through glob-stream.
 
@@ -127,25 +128,33 @@ Options to pass to node-glob through glob-stream.
 Can be piped to and it will write files. Re-emits all data passed to it so you can pipe to multiple folders. Folders that don't exist will be created.
 
 * **path**
+
 Type: `String` or `Function`
 The path (output folder) to write files to. Or a function that returns it, the function will be provided a [vinyl File instance](https://github.com/gulpjs/vinyl).
 * **options**
+
 Type: `Object`
 
 #### gulp.task(name[, deps, fn])
 Defines a task that gulp will run
 
 * **name**
+
 Type: `String`
 The name of the task. Tasks that you want to run from the command line should not have spaces in them.
 * **deps**
+
 Type: `Array`
 An array of tasks to be executed and completed before your task will run.
+
 ***Note:** Are your tasks running before the dependencies are complete? Make sure your dependency tasks are correctly using the async run hints: take in a callback or return a promise or event stream.*
+
 You can also omit the function if you only want to run a bundle of dependency tasks:
+
 `gulp.task('build', ['array', 'of', 'task', 'names']);`
 ***Note:** The tasks will run in parallel (all at once), so don't assume that the tasks will start/finish in order.*
 * **fn**
+
 Type: `Function`
 The function performs the task's main operations.
 
@@ -158,15 +167,19 @@ Tasks can be made asynchronous if its fn does one of the following:
 -Watch files and do something when a file changes. This always returns an EventEmitter that emits `change` events.
 
 * **glob**
+
 Type: `String` or `Array`
 A single glob or array of globs that indicate which files to watch for changes.
 * **opts**
+
 Type: `Object`
 Options, that are passed to [gaze](https://github.com/shama/gaze).
 * **tasks**
+
 Type: `Array`
 Names of task(s) to run when a file changes, added with gulp.task()
 * **cb(event)**
+
 Type: `Function`
 Callback to be called on each change.
 
@@ -180,11 +193,10 @@ The type of change that occurred, either added, changed or deleted.
 Type: `String`
 The path to the file that triggered the event.
 
-### concatenate scripts
-### pre-process files
-### minify/uglify code
-### automate application setup using Tasks
-### pre-process SASS files using Tasks
+* concatenate scripts
+* minify/uglify code
+* automate application setup using Tasks
+* pre-process SASS files using Tasks
 
 ### CLI flags
 gulp has very few flags to know about. All other flags are for tasks to use if needed.
