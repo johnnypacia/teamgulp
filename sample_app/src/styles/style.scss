@@ -1,5 +1,42 @@
-$green-light: #C0D0AA;
+@import 'variables';
+@import 'containers';
+@import 'background';
 
 h1 {
   color: $green-light;
+  text-align: $textcenter;
+  font-size: $fiftypx;
+}
+
+h2 {
+	text-align: $textcenter;
+}
+
+p {
+	color: $gray;
+	width: $halfpercent;
+	margin: $center;
+	text-align: $textcenter;
+}
+
+body {
+	background-image: $backgroundOne;
+	background-attachment: $fixed;
+	background-size: $cover;
+}
+
+.contain {
+	background-color: $backgroundTwo;
+	width: $halfpercent;
+	margin: $center;
+	border-radius: $radiusone;
+	padding-bottom: $pad;
+}
+
+.contain a {
+	text-decoration: $decoration;
+}
+
+.contain a:hover {
+	font-size: $hover;
 }
