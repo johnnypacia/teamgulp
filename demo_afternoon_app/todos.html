@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="AfternoonApp">
+<head>
+  <title></title>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="todos_controller.js"></script>
+  <script>
+    function faveBand(){
+      window.alert("DMB 4EVA");
+    }
+  </script>
+</head>
+<body>
+  <!-- this is how we invoked functions in 1996 -->
+  <button onClick="faveBand()">DMB</button>
+
+  <div ng-controller="TodosController as todos">
+  <!-- https://docs.angularjs.org/api/ng/directive/ngIf -->
+    <h1 ng-if="todos.all.length">{{todos.all.length}} things to do</h1>
+    <!-- https://docs.angularjs.org/api/ng/directive/ngSubmit -->
+    <form ng-submit="todos.add()">
+      <input type="text" ng-model="todos.new">
+    </form>
+    <ul>
+      <li ng-repeat="todo in todos.all">{{todo.task}}</li>
+    </ul>
+  </div>
+
+</body>
+</html>

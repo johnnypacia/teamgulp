@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="AfternoonApp">
+<head>
+  <title></title>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="home_controller.js"></script>
+  <script src="food_controller.js"></script>
+  <script src="nap_controller.js"></script>
+</head>
+<body>
+
+<!-- home controller -->
+  <div ng-controller="HomeController as home">
+    <input type="text" ng-model="home.name">
+    <h1>Hello {{home.name}}! Wanna nap?</h1>
+  </div>
+
+<!--  food controller -->
+  <div ng-controller="FoodController as food">
+    <select ng-model="food.meal">
+      <option value="breakfast">Breakfast</option>
+      <option value="lunch">Lunch</option>
+      <option value="dinner">Dinner</option>
+    </select>
+    <p>I'm <strong>stuffed</strong> from {{food.meal}}</p>
+  </div>
+
+<!-- nap controller -->
+  <div ng-controller="NapController as nap">
+    <input ng-model="nap.spoonSize" type="radio" name="spoonSize" value="big">Big
+    <input ng-model="nap.spoonSize" type="radio" name="spoonSize" value="little">Little
+    <p>I want to be the <em>{{nap.spoonSize}}</em> spoon.</p>
+  </div>
+
+</body>
+</html>
