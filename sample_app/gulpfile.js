@@ -27,8 +27,6 @@ gulp.task('sass', function () {
    .pipe(gulp.dest('./build/styles/'));
 });
 
-
-
 //Runs all task with one command
 gulp.task('default', ['sass','styles'], function() {
   console.log('defaultin')
@@ -43,6 +41,4 @@ gulp.task('default', ['sass','styles'], function() {
   }
 
 });
-
-
 
